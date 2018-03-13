@@ -25,6 +25,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
 	public static OI oi;
 	public static Drivebase drivebase;
+	public static Claw_Subsystem claw;
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -35,6 +36,7 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		drivebase = new Drivebase();
+		claw = new Claw_Subsystem();
 	}
 
 	/**
@@ -90,6 +92,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
 	}
 
 	/**

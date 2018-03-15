@@ -7,13 +7,11 @@
 
 package org.usfirst.frc.team6463.robot;
 
-import org.usfirst.frc.team6463.robot.subsystems.*;
-
+import org.usfirst.frc.team6463.robot.subsystems.Arm_Subsystem;
+import org.usfirst.frc.team6463.robot.subsystems.Claw_Subsystem;
+import org.usfirst.frc.team6463.robot.subsystems.Drivebase;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,6 +23,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
 	public static OI oi;
 	public static Drivebase drivebase;
+	public static Claw_Subsystem claw;
+	public static Arm_Subsystem arm;
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -35,6 +35,8 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		drivebase = new Drivebase();
+		claw = new Claw_Subsystem();
+		arm = new Arm_Subsystem();
 	}
 
 	/**
@@ -74,6 +76,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		
+    
 	}
 
 	@Override
@@ -90,6 +94,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
 	}
 
 	/**
